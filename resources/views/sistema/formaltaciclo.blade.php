@@ -19,12 +19,13 @@
 			
 		  <input class="input" value="{{old('fechainicio')}}" name="fechainicio" type="text" placeholder="&#128100;  Fecha de inicio" >	
 
-          <input class="input" value="{{old('fechafin')}}" name="fechafin" type="text" placeholder="&#128100;  Fecha final" >
-		  
-		   @if($errors->first('fechainicio'))
+            @if($errors->first('fechainicio'))
 	   	     <i>{{ $errors->first('fechainicio') }}</i>
 	   	     @endif <br>
 
+          <input class="input" value="{{old('fechafin')}}" name="fechafin" type="text" placeholder="&#128100;  Fecha final" >
+		
+		   
            @if($errors->first('fechafin'))
 	   	     <i>{{ $errors->first('fechafin') }}</i>
 	   	     @endif <br>
