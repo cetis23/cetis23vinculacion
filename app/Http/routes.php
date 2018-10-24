@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function(){
     return view('welcome');
 });
+
+Route::get('/mensaje',function(){
+    echo "hola mundo";
+});
+
+Route::get('/at','curso@areatriangulo');
+Route::get('/ac/{radio}','curso@areacirculo');
+
+Route::get('/altamaestro','curso@altamaestro');
+Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
+Route::get('/reportemaestros','curso@reportemaestros');
+Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
+Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
+Route::POST('/guardaedicionm','curso@guardaedicionm')->name('guardaedicionm');
+Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
+Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
+
+
+
