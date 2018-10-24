@@ -1,0 +1,114 @@
+[33mcommit 53ada4f13d9bd7dfdd1080938738943bdc43092d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: violetabp <brunopea240489@gmail.com>
+Date:   Wed Oct 24 16:56:00 2018 -0500
+
+    Agregue una vista de alta ciclo
+
+[33mcommit 054a44926d438bdf07a22c148bc86b2455c74659[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: violetabp <brunopea240489@gmail.com>
+Date:   Wed Oct 24 06:19:30 2018 -0500
+
+    Se agrego titulos
+
+[33mcommit f08142d2187726b0974a4e231af972849081079c[m
+Merge: f13c229 811c1e0
+Author: violetabp <brunopea240489@gmail.com>
+Date:   Wed Oct 24 05:55:29 2018 -0500
+
+    Se agrego elta ciclo
+
+[33mcommit f13c2295948a7bf7d014597b6570796c7bf02469[m
+Author: violetabp <brunopea240489@gmail.com>
+Date:   Wed Oct 24 05:45:58 2018 -0500
+
+    Se agrego el modelo de ciclos
+
+[33mcommit 811c1e086fddd52a92ebae6a36dfd18cace864c3[m
+Author: EsmeraldaF <al221510443@gmail.com>
+Date:   Wed Oct 24 05:33:41 2018 -0500
+
+     se agregaron las rutas de municipios
+
+[33mcommit 20a38bf5652a509149cbfa91aa74677a40997b69[m
+Author: EsmeraldaF <al221510443@gmail.com>
+Date:   Wed Oct 24 05:21:09 2018 -0500
+
+     se agrgo el modelo de municipios
+
+[33mcommit 73adca5f5ef537e7e5215444132d847ca39292f1[m
+Author: EsmeraldaF <al221510443@gmail.com>
+Date:   Wed Oct 24 05:15:24 2018 -0500
+
+     se crearon las rutas de estado
+
+[33mcommit 7a5928995059101267b0cfe2b555a0513fe3872c[m
+Author: 1997esmeralda <esmeraldaort77@gmail.com>
+Date:   Wed Oct 24 02:41:57 2018 -0500
+
+    se agrego el modelo de estado
+
+[33mcommit cfa3f5c8df28398e3e6402ba308ca61537660d2f[m
+Author: 1997esmeralda <esmeraldaort77@gmail.com>
+Date:   Wed Oct 24 02:34:00 2018 -0500
+
+    se agrego la vista de estados
+
+[33mcommit dcae5068158c3e50138f56cd44ea8d8d5e4fd1c5[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Wed Oct 24 00:26:00 2018 -0500
+
+    se crearon modelos de alumnos y especialidades
+
+[33mcommit 08c0aaed717a559b4ec84748893bc5cd3042bf18[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Wed Oct 24 00:21:36 2018 -0500
+
+    se crearon rutas de alta y guardar de los catalogos especialidades y alumnos
+
+[33mcommit 8d9a03895394fd65a83ccf7d51e37f9eea6df687[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Wed Oct 24 00:14:58 2018 -0500
+
+    se modifico el controlador agregando funciones de alta alumnos y alta especialidades
+
+[33mcommit e7c1f136ef080b1fa0f8714eab0dadc9f22455b8[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Wed Oct 24 00:08:51 2018 -0500
+
+    se agrego vista alta especialidades
+
+[33mcommit 175872a1d94f106e73d2e6f730ea6b6af81efc0e[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Wed Oct 24 00:05:37 2018 -0500
+
+    se agrego la vista principal
+
+[33mcommit 55212afeced27551a104d00c74ea3ffe94c53478[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Tue Oct 23 23:13:19 2018 -0500
+
+    se agrego la vista altaalumnos
+
+[33mcommit 57b1e1da9f800d72d2d009457eda7fbd0723225e[m
+Author: EsmeraldaF <44350105+EsmeraldaF@users.noreply.github.com>
+Date:   Tue Oct 23 16:50:24 2018 -0500
+
+    Add files via upload
+
+[33mcommit f8de7d94415d476c5a93da258c9de4cf294e2a4b[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Tue Oct 23 02:34:50 2018 -0500
+
+    se creo vista altaedo
+
+[33mcommit 6534e46f307885ff618ce42bb83e3935bb8a23fe[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Mon Oct 22 21:44:17 2018 -0500
+
+     Se creo un archivo de vista
+
+[33mcommit 3c7c482d504f3ebc1add40a77b0d51304b6ad166[m
+Author: carlajessica32 <al221511071@gmail.com>
+Date:   Mon Oct 22 21:29:18 2018 -0500
+
+    Empezamos bien
