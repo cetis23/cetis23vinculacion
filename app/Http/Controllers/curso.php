@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\carreras;
 use App\maestros;
 use App\especialidades;
+use App\ciclos;
+
 
 class curso extends Controller
 {
@@ -273,4 +275,78 @@ public function altaalumno()
         
     }
 
+
+    //mis catalogos
+
+    
+	
+	public function altaciclo()
+    {
+       //ciclos
+         $clavequesigue = ciclos::orderBy('idciclo','desc')
+                              ->take(1)->get();
+                              $idciclo=$clavequesigue[0]->idciclo+1;
+    
+                    
+           return view ('sistema.formaltaciclo')
+           ->with('idciclo',$idciclo);
+   
+    }
+   public function guardaciclo(Request $request)
+    {
+        $fechainicio= $request->fechainicio;
+        $fechafin= $request->fechafin;
+        
+        
+        
+               // $this->validate($request,[
+               
+             //  'fechainicio'=>'required|'regex:/^d{1,2}-\d{1,2}-\d{4}/|date_format:d-m-Y',
+             //  'fechafin'=>'required|'regex:/^d{1,2}-\d{1,2}-\d{4}/|date_format:d-m-Y',
+               
+             
+
+                                      // ]);
+        
+   //en esta linea se manda a llamar al modelo ciclos     
+   $estt = new ciclos;
+   $estt->idciclo = $request->idciclo;
+   $estt->fechainicio = $request->fechainicio;
+   $estt->fechafin = $request->fechainicio;
+   $estt->save();
+
+   $resultado='Registro Guardado';
+   return view ('sistema.mensaje')
+    ->with('resultado',$resultado);
+    }
+
+
+
+
+  public function altamunicipio()
+    {
+       //maestros
+         $clavequesigue = municipios::orderBy('idmun','desc')
+                              ->take(1)->get();
+                              $idmun=$clavequesigue[0]->idmun+1;
+    
+                    
+           return view ('sistema.formaltamunicipio')
+           ->with('idmun',$idmun);
+
+
+           $estados = estados::orderBy('nomestado','asc')
+                             ->get();
+       //return $carreras;
+       return view ('sistema.altamunicipio')
+             ->with('estados',$estados)
+             ->with('idmun',$idmun);
+   
+    }  
+
+
 }
+
+
+
+
