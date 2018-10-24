@@ -34,3 +34,5 @@ Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespec
 Route::get('/altaestado','curso@altaestado');
 Route::POST('/guardaestado','curso@guardaestado')->name('ges');
 
+Route::get('/altamunicipio','curso@altamunicipio');
+Route::POST('/guardamunicipio','curso@guardamunicipio')->name('gmun');
