@@ -31,5 +31,6 @@ Route::POST('/guardaedicionm','curso@guardaedicionm')->name('guardaedicionm');
 Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
 Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
 
-
+Route::get('/altaestado','curso@altaestado');
+Route::POST('/guardaestado','curso@guardaestado')->name('ges');
 
