@@ -339,6 +339,42 @@ public function altaalumno()
    
     }  
 
+    public function altatitulo()
+    {
+       
+         $clavequesigue = titulos::orderBy('idtitulo','desc')
+                              ->take(1)->get();
+                              $idtitulo=$clavequesigue[0]->idtitulo+1;
+    
+                    
+           return view ('sistema.formaltatitulo')
+           ->with('idtitulo',$idtitulo);
+   
+    }
+    public function guardatitulo(Request $request)
+    {
+        $idtitulo= $request->idtitulo;
+        $folio= $request->folio;
+        $idciclo= $request->idciclo;
+        
+        
+        
+        
+        
+        
+   //en esta linea se manda a llamar al modelo maestros     
+   $tit = new titulos;
+   $tit->idtitulo = $request->idtitulo;
+   $tit->folio = $request->folio;
+   $tit->idciclo = $request->idciclo;
+   $tit->save();
+
+   $resultado='Registro Guardado';
+   return view ('sistema.mensaje')
+    ->with('resultado',$resultado);
+    }
+
+
 
 }
 
