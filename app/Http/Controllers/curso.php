@@ -8,6 +8,7 @@ use App\carreras;
 use App\maestros;
 use App\especialidades;
 use App\ciclos;
+use App\titulos;
 
 
 class curso extends Controller
