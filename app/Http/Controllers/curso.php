@@ -396,7 +396,7 @@ public function altaalumno()
     {
         
         $folio= $request->folio;
-        $idciclo= $request->idciclo;
+        $idtitulo= $request->idtitulo;
 
         $this->validate($request,[
                 
@@ -412,8 +412,12 @@ public function altaalumno()
    $tit = new titulos;
    $tit->idtitulo = $request->idtitulo;
    $tit->folio= $request->folio;
-   $tit->idciclo = $request->idciclo;
+   $tit->idtitulo = $request->idtitulo;
    $tit->save();
+
+   $resultado='Registro  de titulo Guardado';
+   return view ('sistema.mensaje')
+    ->with('resultado',$resultado);
 
   
     }
