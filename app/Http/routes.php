@@ -16,7 +16,7 @@ Route::get('/',function(){
 });
 
 Route::get('/mensaje',function(){
-    echo "cetis 23";
+    echo "hola mundo";
 });
 
 Route::get('/at','curso@areatriangulo');
@@ -31,19 +31,8 @@ Route::POST('/guardaedicionm','curso@guardaedicionm')->name('guardaedicionm');
 Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
 Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
 
-<<<<<<< HEAD
-// mis catalogos 
-Route::get('/altaciclo','curso@altaciclo');
-Route::POST('/guardaciclo','curso@guardaciclo')->name('gcic');
-
-=======
 Route::get('/altaestado','curso@altaestado');
 Route::POST('/guardaestado','curso@guardaestado')->name('ges');
 
 Route::get('/altamunicipio','curso@altamunicipio');
 Route::POST('/guardamunicipio','curso@guardamunicipio')->name('gmun');
-
-
-Route::get('/altatipot','curso@altatipotitulo');
-Route::POST('/guardatipot','curso@guardatipotitulo')->name('gtt');
-
