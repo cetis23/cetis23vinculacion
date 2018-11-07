@@ -31,6 +31,22 @@ Route::POST('/guardaedicionm','curso@guardaedicionm')->name('guardaedicionm');
 Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
 Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
 
+<<<<<<< HEAD
+=======
+Route::get('/altaciclo','curso@altaciclo')->name('altaciclo');
+Route::POST('/guardaciclo','curso@guardaciclo')->name('guardaciclo');
+
+Route::get('/altatitulo','curso@altatitulo')->name('altatitulo');
+Route::POST('/guardatitulo','curso@guardatitulo')->name('guardatitulo');
+
+
+<<<<<<< HEAD
+// mis catalogos 
+Route::get('/altaciclo','curso@altaciclo');
+Route::POST('/guardaciclo','curso@guardaciclo')->name('gcic');
+
+=======
+>>>>>>> 4d0adf1fc1acb633af9175a7c92b0b12996ede8e
 Route::get('/altaestado','curso@altaestado');
 Route::POST('/guardaestado','curso@guardaestado')->name('ges');
 

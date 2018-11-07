@@ -8,6 +8,7 @@ use App\carreras;
 use App\maestros;
 use App\especialidades;
 use App\ciclos;
+use App\titulos;
 
 
 class curso extends Controller
@@ -339,6 +340,37 @@ public function altaalumno()
    
     }  
 
+    public function altaciclo ()
+    {
+        $clavequesigue = ciclos::orderBy('idciclo', 'desc')
+                        ->take(1)->get();
+                        $idciclo=$clavequesigue[0]->idciclo+1;
+            return view ('sistema.formaltaciclo')
+            ->with ('idciclo', $idciclo);
+            
+    
+    }
+
+    public function guardaciclo(request $request)
+    {
+            $idciclo=$request->idciclo;
+            $fechainicio=$request->fechainicio;
+            $fechafin=$fechafin->fechafin;
+
+                    this->validate($request,[
+                        'fechainicio'=>'required',
+                        'fechafin'=>'required',
+                    ]);
+
+                    //en esta linea se manda llamar el modelo ciclos
+                    $cic = new ciclos;
+                    $cic->idciclo = $request->idciclo;
+                    $cic->fechainicio = $request->fechainicio;
+                    $cic->fechafin = $request->fechafin;
+                    $cic->save();
+
+    }
+
     public function altatitulo()
     {
        
@@ -346,33 +378,50 @@ public function altaalumno()
                               ->take(1)->get();
                               $idtitulo=$clavequesigue[0]->idtitulo+1;
     
+       $todosciclos = ciclos::orderBy('fechafin','asc') 
+                              ->get();
+     
                     
            return view ('sistema.formaltatitulo')
-           ->with('idtitulo',$idtitulo);
+           ->with('idtitulo',$idtitulo)
+           ->with('todosciclos',$todosciclos);
    
     }
+
+
+
+
+
     public function guardatitulo(Request $request)
     {
-        $idtitulo= $request->idtitulo;
+        
         $folio= $request->folio;
-        $idciclo= $request->idciclo;
+        $idtitulo= $request->idtitulo;
+
+        $this->validate($request,[
+                
+                'folio'=>['regex:/^[A-Z]{3}[0-9]{7}$/'],
+                
+
+               
+
+     ]);     
         
         
-        
-        
-        
-        
-   //en esta linea se manda a llamar al modelo maestros     
+   //en esta linea se manda a llamar al modelo titulos     
    $tit = new titulos;
    $tit->idtitulo = $request->idtitulo;
-   $tit->folio = $request->folio;
-   $tit->idciclo = $request->idciclo;
+   $tit->folio= $request->folio;
+   $tit->idtitulo = $request->idtitulo;
    $tit->save();
 
-   $resultado='Registro Guardado';
+   $resultado='Registro  de titulo Guardado';
    return view ('sistema.mensaje')
     ->with('resultado',$resultado);
+
+  
     }
+
 
 
 
