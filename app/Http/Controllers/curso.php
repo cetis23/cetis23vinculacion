@@ -429,6 +429,32 @@ class curso extends Controller
 
 
 
+//AQUI COMIENZAN LAS LISTAS
+
+public function principal()
+     {   
+     
+        
+         return view('sistema.principall');
+     }
+
+
+
+
+
+
+
+     public function muestraespecialidades()
+     {   
+     
+        $es =especialidades::orderBy('idespe')->get();
+         return view('sistema.reporteespecialidad')->with('es',$es);
+     }
+
+
+
+
+
 
 }
 
