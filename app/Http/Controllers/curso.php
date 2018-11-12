@@ -156,121 +156,135 @@ class curso extends Controller
 
 
 
-public function altaalumno()
-    {
-        $clavequesigue = alumnos::orderBy('idalumn','desc')
-        ->take(1)
-        ->get();
-        $idalumn = $clavequesigue[0]->idalumn+1;
+   public function altaalumno()
+   {
+    //maestros
+          $clavequesigue = alumnos::orderBy('idalumn','desc')
+                               ->take(1)->get();
+                               $idalumn=$clavequesigue[0]->idalumn+1;
 
-        $especialidades = especialidades::where('activo','Si')
-        ->orderBy('nomespe','asc')
-        ->get();
-        //orm eloquent  estudair sus consultas
-        //return $carreras;
-        return view ('sistema.altaalumnos')->with('especialidades',$especialidades)->with('idalumn',$idalumn);
-        
-    }
-    public function guardaalumno(Request $request)
-    {
-        $nombre = $request->nombre;
-        $edad = $request->edad;
-        $correo = $request->correo;
-        $idm = $request->idm;
-        $cp = $request->cp;
-        $idalumn = $request->idalumn;
-        $app = $request->app;
-        $apm = $request->apm;
-        $nomalumn = $request->nomalumn;
-        $grupo = $request->grupo;
-        $turno = $request->turno;
-        $tel1 = $request->tel1;
-        $tel2 = $request->tel2;
-        $correo1 = $request->correo1;
-        $correo2 = $request->correo2;
-        $cp = $request->cp;
-        $modalidad = $request->modalidad;
-        
-        //no se recibe el archivo
+          $todosmunicipios = municipios::orderBy('nombremun','asc') 
+                              ->get();
 
-        $this->validate($request,[
-            'idalumn'=>'required|numeric',
-            'app'=>'required|alpha',
-            'apm'=>'required|alpha',
-            'nomalumn'=>'required|alpha',
-            'grupo'=>'required|integer',
-            'turno'=>'required|alpha',
-            'tel1'=>'required|integer',
-            'tel2'=>'required|integer',
-            'correo1'=>'required|email',
-            'correo2'=>'required|email',
-            'cp'=>'required|integer',
-            'modalidad'=>'required|alpha',
-        
-            //'cp'=>['regex:/^[0-9]{5}[-][0-9,a-z$/']
-            'archivo' => 'image|mimes:jpg,jpeg,gif,png'
-        ]);
-//$file => c:/>users/misimagenes/carpt/descarga.png
-        $file =$request->file('archivo');
-        if($file!="")
-        {
-        //ldate => 20180928_063455_descarga.png
-        $ldate = date('Ymd_His_');
-        //$img = descarga.png
-        $img = $file->getClientOriginalName();
-        //img2 = 20180928_063455_descarga.png
-        $img2 = $ldate.$img;
+          $todosespecialidad = especialidades::orderBy('nomespe','asc') 
+                              ->get();
 
-        \Storage::disk('local')->put($img2, \File::get($file));
-        }
-        else
-        {
-            $img2 = 'sinfoto.png';
-        }
-        //insert into maestros
-        $maest = new alumnos;
-        $maest->archivo = $img2;
+          $todospracticas = practicas::orderBy('asesorprac','asc') 
+                              ->get();
 
-        
+          $todosdocumentos = documentos::orderBy('nomdoc','asc') 
+                              ->get();
 
-        $maest -> nombre = $request->nombre;
-        $maest -> edad = $request->edad;
-        $maest -> correo = $request->correo;
-        $maest -> idm = $request->idm;
-        $maest -> cp = $request->cp;
-        $maest -> idalumn = $request->idalumn;
-        $maest -> app = $request->app;
-        $maest -> apm = $request->apm;
-        $maest -> nomalumn = $request->nomalumn;
-        $maest -> grupo = $request->grupo;
-        $maest -> turno = $request->turno;
-        $maest -> tel1 = $request->tel1;
-        $maest -> tel2 = $request->tel2;
-        $maest -> correo1 = $request->correo1;
-        $maest -> correo2 = $request->correo2;
-        $maest -> cp = $request->cp;
-        $maest -> modalidad = $request->modalidad;
-        $maest -> idmun = $request ->idmun;
-        $maest -> idespe = $request ->idespe;
-        $maest -> idpractica = $request ->idpractica;
-        $maest -> iddoc = $request ->iddoc;
-        $maest -> idtitulo = $request ->idtitulo;
-        
-
-        $maest->save();
-        $proceso = "ALTA DE MAESTRO";
-        $mensaje = "Maestro guardado correctamente";
-        return view ("sistema.mensaje")
-        ->with('proceso',$proceso)
-        ->with('mensaje',$mensaje);
-        
-        
-    }
+          $todostituloss = titulos::orderBy('folio','asc') 
+                              ->get();
 
 
-    //mis catalogos
+     
+                 
+            return view ('sistema.formaltaalumno')
+            ->with('idalumn',$idalumn)
+            ->with('todosmunicipios',$todosmunicipios)
+            ->with('todosespecialidad',$todosespecialidad)
+            ->with('todospracticas',$todospracticas)
+            ->with('todosdocumentos',$todosdocumentos)
+            ->with('todostituloss',$todostituloss);
+    
+   }
+
+
+     public function guardalumno(Request $request)
+     {
+         $app= $request->app;
+         $apm= $request->apm;
+         $nomalumn= $request->nomalumn;
+         $grupo= $request->grupo;
+         $turno= $request->turno;
+         $tel1= $request->tel1;
+         $tel2= $request->tel2;
+         $correo1= $request->correo1;
+         $correo2= $request->correo2;
+         $cp= $request->cp;
+         $modalidad= $request->modalidad;
+         $idmun = $request->idmun;
+         $idespe= $request->idespe;
+         $idpractica= $request->idpractica;
+         $iddoc= $request->iddoc;
+         $idtitulo= $request->idtitulo;
+         
+         
+         
+                 $this->validate($request,[
+                
+                'app'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+                'apm'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+                'nomalumn'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+                'grupo'=>['regex:/^[A-Z]{3}[-][0-9]{2}$/'],
+                'turno'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+                'tel1'=>['regex:/^[0-9]{10}$/'],
+                'tel2'=>['regex:/^[0-9]{10}$/'],
+                'correo1'=>'required|email',
+                'correo2'=>'required|email',
+                'cp'=>['regex:/^[0-9]{5}$/'],
+                'modalidad'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+                'idmun'=>'required',
+                'idespe'=>'required',
+                'idpractica'=>'required',
+                'iddoc'=>'required',
+                'idtitulo'=>'required',
+                'archivo'=>'image|mimes:jpeg,jpg,gif,png'
+
+                
+                
+                                        ]);
+
+//$file => c:/>users/misimagenes/carpt/normita.jpg
+  $file = $request->file('archivo');
+   if($file!="")
+   {
+   //ldate => 20180928_063455_
+   $ldate = date('Ymd_His_');
+   //$img = normita.jpg
+   $img = $file->getClientOriginalName();
+   //img2 = 20180928_063455_normita.jpg
+   $img2 = $ldate.$img;
+   
+   \Storage::disk('local')->put($img2, \File::get($file));
+
+   }
+     else
+     {
+     $img2 = 'sinfoto.png';
+   }     
+         
+    //en esta linea se manda a llamar al modelo maestros     
+    $alu = new alumnos;
+    $alu->archivo = $img2;
+    $alu->idalumn = $request->idalumn;
+    $alu->app = $request->app;
+    $alu->apm = $request->apm;
+    $alu->nomalumn = $request->nomalumn;
+    $alu->grupo = $request->grupo;
+    $alu->turno = $request->turno;
+    $alu->tel1 = $request->tel1;
+    $alu->tel2 = $request->tel2;
+    $alu->correo1 = $request->correo1;
+    $alu->correo2 = $request->correo2;
+    $alu->cp = $request->cp;
+    $alu->modalidad = $request->modalidad;
+    $alu->idmun = $request->idmun;
+    $alu->idespe = $request->idespe;
+    $alu->idpractica = $request->idpractica;
+    $alu->iddoc = $request->iddoc;
+    $alu->idtitulo = $request->idtitulo;
+    $alu->save();
+
+    $resultado='Registro Guardado';
+    return view ('sistema.mensaje')
+     ->with('resultado',$resultado);
+     }
 
     
+
     public function altaciclo()
     {
        
