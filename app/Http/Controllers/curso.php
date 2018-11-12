@@ -9,6 +9,7 @@ use App\maestros;
 use App\especialidades;
 use App\ciclos;
 use App\titulos;
+use App\alumnos;
 
 
 class curso extends Controller
