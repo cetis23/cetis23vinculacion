@@ -53,6 +53,9 @@ Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecial
 Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
 Route::get('/reporteespecialidad','curso@muestraespecialidades')->name('muestraesp');
 
+Route::get('/altaalumno','curso@altaalumno')->name('altaal');
+Route::POST('/guardalumno','curso@guardalumno')->name('guardaal');
+Route::get('/reportealumno','curso@muestraalumnos')->name('muestraalu');
 
 
 
