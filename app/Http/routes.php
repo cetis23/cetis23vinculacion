@@ -9,46 +9,62 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+*/ 
 
-Route::get('/',function(){
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mensaje',function(){
-    echo "hola mundo";
+Route::get('/mensaje', function () {
+    echo "cetis 23 ";
 });
+
 
 Route::get('/at','curso@areatriangulo');
 Route::get('/ac/{radio}','curso@areacirculo');
 
 Route::get('/altamaestro','curso@altamaestro');
 Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
-Route::get('/reportemaestros','curso@reportemaestros');
-Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
-Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
-Route::POST('/guardaedicionm','curso@guardaedicionm')->name('guardaedicionm');
-Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
-Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
 
-<<<<<<< HEAD
-=======
-Route::get('/altaciclo','curso@altaciclo')->name('altaciclo');
-Route::POST('/guardaciclo','curso@guardaciclo')->name('guardaciclo');
+Route::get('/vprincipal','curso@principal');
 
-Route::get('/altatitulo','curso@altatitulo')->name('altatitulo');
-Route::POST('/guardatitulo','curso@guardatitulo')->name('guardatitulo');
-
-
-<<<<<<< HEAD
-// mis catalogos 
-Route::get('/altaciclo','curso@altaciclo');
-Route::POST('/guardaciclo','curso@guardaciclo')->name('gcic');
-
-=======
->>>>>>> 4d0adf1fc1acb633af9175a7c92b0b12996ede8e
 Route::get('/altaestado','curso@altaestado');
 Route::POST('/guardaestado','curso@guardaestado')->name('ges');
+Route::get('/reporteestados','curso@muestraestados')->name('muestraest');
 
 Route::get('/altamunicipio','curso@altamunicipio');
 Route::POST('/guardamunicipio','curso@guardamunicipio')->name('gmun');
+Route::get('/reportemunicipios','curso@muestramunicipios')->name('muestramun');
+
+Route::get('/altatipot','curso@altatipotitulo');
+Route::POST('/guardatipot','curso@guardatipotitulo')->name('gtt');
+Route::get('/reportetipost','curso@muestratipost')->name('muestratipot');
+
+
+Route::get('/altatitulo','curso@altatitulo');
+Route::POST('/guardatitulo','curso@guardatitulo')->name('gtit');
+Route::get('/reportetitulo','curso@muestratitulo')->name('muestratit');
+
+Route::get('/altaciclo','curso@altaciclo');
+Route::POST('/guardaciclo','curso@guardaciclo')->name('gcic');
+Route::get('/reporteciclo','curso@muestraciclo')->name('muestracic');
+
+Route::get('/altaespecialidades','curso@altaespecialidades')->name('altaespecialidades');
+Route::POST('/guardaespecialidad','curso@guardaespecialidad')->name('guardaespecialidad');
+Route::get('/reporteespecialidad','curso@muestraespecialidades')->name('muestraesp');
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
