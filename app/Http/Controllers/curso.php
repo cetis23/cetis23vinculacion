@@ -451,7 +451,12 @@ public function principal()
          return view('sistema.reporteespecialidad')->with('es',$es);
      }
 
-
+     public function muestraalumnos()
+     {   
+     
+        $alu =alumnos::orderBy('idalumn')->get();
+         return view('sistema.reportealumno')->with('alu',$alu);
+     }
 
 
 
