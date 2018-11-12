@@ -121,47 +121,38 @@ class curso extends Controller
 
 
    ////// //////////////
-public function altaespecialidades()
-{
-    $clavequesigue = especialidades::orderBy('idespe','desc')
-    ->take(1)
-    ->get();
-    $idespe = $clavequesigue[0]->idespe+1;
-
-   // $carreras = carreras::where('activo','Si')
-   // ->orderBy('nombre','asc')
-    //->get();
-    //orm eloquent  estudair sus consultas
-    //return $carreras;
-    return view ('sistema.altaespecialidades')->with('idespe',$idespe);
+   public function altaespecialidades()
+   {
+       $clavequesigue = especialidades::orderBy('idespe','desc')
+       ->take(1)
+       ->get();
+       $idespe = $clavequesigue[0]->idespe+1;
+   
     
-}
-public function guardaespecialidad(Request $request)
-{
-    $nomespe = $request->nomespe;
-    $idespe = $request->idespe;
-    //no se recibe el archivo
+       return view ('sistema.formaltaespecialidad')->with('idespe',$idespe);
+       
+   }
+   public function guardaespecialidad(Request $request)
+   {
+       $nomespe = $request->nomespe;
+       $idespe = $request->idespe;
+      
+   
+       $this->validate($request,[
+          // 'idespe'=>'required|numeric',
+           'nomespe'=>'required|regex:/^[A-Z][A-Z,a-z, ]+$/',
+        
+           ]);
+           $esp = new especialidades;
+           $esp -> idespe = $request ->idespe;
+           $esp -> nomespe = $request ->nomespe;
+           $esp->save();
 
-    $this->validate($request,[
-        'idespe'=>'required|numeric',
-        'nomespe'=>'required|alpha',
-        //'edad'=>'required|integer|min:18|max:70',
-        //'correo'=>'required|email',
-        //'cp'=>['regex:/^[0-9]{5}[-][0-9,a-z$/']
-        //'archivo' => 'image|mimes:jpg,jpeg,gif,png'
-        ]);
-        $esp = new especialidades;
-        $esp -> idespe = $request ->idespe;
-        $esp -> nomespe = $request ->nomespe;
+          $resultado='Registro Guardado';
+  return view ('sistema.mensaje')
+   ->with('resultado',$resultado);
+   }
 
-        $esp->save();
-        $proceso = "ALTA ESPECIALIDAD";
-        $mensaje = "Especialidad guardada correctamente";
-        return view ("sistema.mensaje")
-        ->with('proceso',$proceso)
-        ->with('mensaje',$mensaje);
-
-}
 
 
 
